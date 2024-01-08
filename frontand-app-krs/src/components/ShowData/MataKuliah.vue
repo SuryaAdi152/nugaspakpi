@@ -71,7 +71,7 @@ created() {
 },
 methods: {
   fetchMahasiswaData() {
-    var url = `http://127.0.0.1:8000/api/matakuliah/${this.MatakuliahId}`;
+    var url = `https://api-group2-prognet.manpits.xyz/api/matakuliah/${this.MatakuliahId}`;
     axios.get(url).then(({ data }) => {
       console.log(data);
       this.matakuliah = data;

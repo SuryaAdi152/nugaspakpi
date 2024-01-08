@@ -1,23 +1,30 @@
-<!-- Login.vue -->
 <template>
-  <div class="container col-md-6 m-auto">
-    <h2>Login</h2>
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center">KRS</h5>
+            <form @submit.prevent="loginUser">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" v-model="email" aria-describedby="emailHelp" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" v-model="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Login</button>
+              <!-- Tampilkan tombol "Logout" hanya jika pengguna sudah login -->
+              <button v-if="isUserLoggedIn" type="button" class="btn btn-danger" @click="logoutUser">Logout</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleFormControlInput1">
-    </div>
-
-    <div>
-      <button type="submit" class="btn btn-primary">Login</button>
-    </div>
-    
   </div>
 </template>
-  
+
 <script>
 import axios from 'axios';
 
@@ -26,21 +33,45 @@ export default {
     return {
       email: '',
       password: '',
+      isUserLoggedIn: false
     };
   },
   methods: {
-    login() {
-      axios.post('http://localhost:8000/api/login', {
+    loginUser() {
+      const userData = {
         email: this.email,
-        password: this.password,
-      })
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error(error.response.data);
-      });
+        password: this.password
+      };
+
+      axios.post('https://api-group2-prognet.manpits.xyz/api/login', userData)
+        .then(response => {
+          localStorage.setItem('user', response.data.token);
+          this.redirectUser();
+          alert('Login successful!');
+        })
+        .catch(error => {
+          console.error('Login failed:', error);
+          alert('Login failed. Please try again.');
+        });
+    },
+    logoutUser() {
+      localStorage.removeItem('user');
+      this.redirectUser();
+      alert('Logout successful!');
+    },
+    redirectUser() {
+      const isUserLoggedIn = localStorage.getItem('user');
+      this.isUserLoggedIn = !!isUserLoggedIn;
+
+      if (this.isUserLoggedIn) {
+        this.$router.push('/dashboard');
+      } else {
+        this.$router.push('/login'); // Perbarui dengan rute login yang benar
+      }
     },
   },
+  created() {
+    this.redirectUser();
+  }
 };
 </script>

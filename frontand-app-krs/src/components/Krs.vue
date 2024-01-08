@@ -73,14 +73,14 @@ export default {
   },
   methods: {
     loadAllKrs() {
-      var url = 'http://127.0.0.1:8000/api/krs';
+      var url = 'https://api-group2-prognet.manpits.xyz/api/krs';
       axios.get(url).then(({ data }) => {
         console.log(data);
         this.allKrs = data;
       });
     },
     removeKrs(Krs) {
-      var url = `http://127.0.0.1:8000/api/krs/${Krs.id}`;
+      var url = `https://api-group2-prognet.manpits.xyz/api/krs/${Krs.id}`;
       axios.delete(url).then(() => {
         console.log('Data Berhasil Dihapus !');
         this.loadAllKrs(); // Memanggil kembali data setelah menghapus

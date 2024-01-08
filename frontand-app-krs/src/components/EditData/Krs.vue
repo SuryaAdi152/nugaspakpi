@@ -89,14 +89,14 @@ created() {
 },
 methods: {
   fetchKrsData() {
-    var url = `http://127.0.0.1:8000/api/krs/${this.KrsId}`;
+    var url = `https://api-group2-prognet.manpits.xyz/api/krs/${this.KrsId}`;
     axios.get(url).then(({ data }) => {
       console.log(data);
       this.Krs = data;
     });
   },
   simpan() {
-    var url = `http://127.0.0.1:8000/api/krs/${this.Krs.id}`;
+    var url = `https://api-group2-prognet.manpits.xyz/api/krs/${this.Krs.id}`;
     axios.put(url, this.Krs).then(() => {
       console.log('Data Berhasil Di edit');
       // Redirect kembali ke halaman utama atau lakukan tindakan lain yang diperlukan

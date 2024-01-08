@@ -65,7 +65,7 @@
     },
     methods: {
         tambahKrs() {
-        var url = 'http://127.0.0.1:8000/api/detilkrs';
+        var url = 'https://api-group2-prognet.manpits.xyz/api/detilkrs';
         axios.post(url, this.DetilKrs).then(() => {
           console.log('Data Berhasil Ditambahkan');
           // Redirect ke halaman lain atau lakukan tindakan lain yang diperlukan
@@ -75,21 +75,21 @@
         });
       },
       loadMahasiswaList() {
-        var agamaUrl = 'http://127.0.0.1:8000/api/mahasiswa';
+        var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/mahasiswa';
         axios.get(agamaUrl).then(({ data }) => {
           console.log(data);
           this.mahasiswaList = data;
         });
       },
       loadMatakuliahList() {
-        var agamaUrl = 'http://127.0.0.1:8000/api/matakuliah';
+        var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/matakuliah';
         axios.get(agamaUrl).then(({ data }) => {
           console.log(data);
           this.matakuliahList = data;
         });
       },
       loadSemesterList() {
-        var agamaUrl = 'http://127.0.0.1:8000/api/krs';
+        var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/krs';
         axios.get(agamaUrl).then(({ data }) => {
           console.log(data);
           this.semesterList = data;

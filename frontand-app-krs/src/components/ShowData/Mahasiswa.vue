@@ -108,7 +108,7 @@ computed: {
   },
 methods: {
   fetchMahasiswaData() {
-    var url = `http://127.0.0.1:8000/api/mahasiswa/${this.MahasiswaId}`;
+    var url = `https://api-group2-prognet.manpits.xyz/api/mahasiswa/${this.MahasiswaId}`;
     axios.get(url).then(({ data }) => {
       console.log(data);
       this.Mahasiswa = data;
@@ -116,7 +116,7 @@ methods: {
   },
   loadAgamaList() {
       // Permintaan untuk mendapatkan daftar agama
-      var agamaUrl = 'http://127.0.0.1:8000/api/agama';
+      var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/agama';
       axios.get(agamaUrl).then(({ data }) => {
         console.log(data);
         this.agamaList = data;
@@ -124,7 +124,7 @@ methods: {
   },
   loadDetilKrs() {
       // Permintaan untuk mendapatkan daftar agama
-      var agamaUrl = 'http://127.0.0.1:8000/api/detilkrs';
+      var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/detilkrs';
       axios.get(agamaUrl).then(({ data }) => {
         console.log(data);
         this.DetilKrs = data;
@@ -132,7 +132,7 @@ methods: {
   },
   loadMatakuliahList() {
     // Permintaan untuk mendapatkan daftar agama
-    var agamaUrl = 'http://127.0.0.1:8000/api/matakuliah';
+    var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/matakuliah';
     axios.get(agamaUrl).then(({ data }) => {
       console.log(data);
       this.matakuliahList = data;

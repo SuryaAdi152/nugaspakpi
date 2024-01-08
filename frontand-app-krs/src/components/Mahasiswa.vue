@@ -83,7 +83,7 @@ export default {
   },
   methods: {
     loadAllMahasiswa() {
-      var url = 'http://127.0.0.1:8000/api/mahasiswa';
+      var url = 'https://api-group2-prognet.manpits.xyz/api/mahasiswa';
       axios.get(url).then(({ data }) => {
         console.log(data);
         this.allMahasiswa = data;
@@ -91,7 +91,7 @@ export default {
     },
     loadAgamaList() {
       // Permintaan untuk mendapatkan daftar agama
-      var agamaUrl = 'http://127.0.0.1:8000/api/agama';
+      var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/agama';
       axios.get(agamaUrl).then(({ data }) => {
         console.log(data);
         this.agamaList = data;

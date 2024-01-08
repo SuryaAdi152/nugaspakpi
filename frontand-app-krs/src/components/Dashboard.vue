@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     fetchMahasiswaData() {
-      const apiUrl = 'http://127.0.0.1:8000/api/mahasiswa';
+      const apiUrl = 'https://api-group2-prognet.manpits.xyz/api/mahasiswa';
 
       axios.get(apiUrl)
         .then(response => {

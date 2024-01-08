@@ -88,7 +88,7 @@ export default {
   },
   methods: {
     loadAllDetilKrs() {
-      var url = 'http://127.0.0.1:8000/api/detilkrs';
+      var url = 'https://api-group2-prognet.manpits.xyz/api/detilkrs';
       axios.get(url).then(({ data }) => {
         console.log(data);
         this.allDetilKrs = data;
@@ -96,7 +96,7 @@ export default {
     },
     loadMahasiswaList() {
       // Permintaan untuk mendapatkan daftar agama
-      var agamaUrl = 'http://127.0.0.1:8000/api/mahasiswa';
+      var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/mahasiswa';
       axios.get(agamaUrl).then(({ data }) => {
         console.log(data);
         this.mahasiswaList = data;
@@ -104,7 +104,7 @@ export default {
     },
     loadKrsList() {
       // Permintaan untuk mendapatkan daftar agama
-      var agamaUrl = 'http://127.0.0.1:8000/api/krs';
+      var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/krs';
       axios.get(agamaUrl).then(({ data }) => {
         console.log(data);
         this.krsList = data;
@@ -112,7 +112,7 @@ export default {
     },
     loadMatakuliahList() {
       // Permintaan untuk mendapatkan daftar agama
-      var agamaUrl = 'http://127.0.0.1:8000/api/matakuliah';
+      var agamaUrl = 'https://api-group2-prognet.manpits.xyz/api/matakuliah';
       axios.get(agamaUrl).then(({ data }) => {
         console.log(data);
         this.matakuliahList = data;
@@ -144,7 +144,7 @@ export default {
       return tahun ? tahun.tahun : 'Tidak Diketahui';
     },
     removeKrs(DetilKrs) {
-      var url = `http://127.0.0.1:8000/api/detilkrs/${DetilKrs.id}`;
+      var url = `https://api-group2-prognet.manpits.xyz/api/detilkrs/${DetilKrs.id}`;
       axios.delete(url).then(() => {
         console.log('Data Berhasil Dihapus !');
         this.loadAllDetilKrs(); // Memanggil kembali data setelah menghapus
